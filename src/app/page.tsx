@@ -29,7 +29,7 @@ const dashboard2 = [
 export default function Home() {
   return (
     <>
-      <div className="bg-background h-screen flex-col   font-sourceCodePro relative flex items-center   justify-center gap-8 px-8 lg:px-24 py-4">
+      <div className="bg-background min-h-screen flex-col   font-sourceCodePro relative flex items-center   justify-center gap-8 px-8 lg:px-24 py-4">
         <h1 className="text-3xl md:text-5xl  flex gap-1 items-center justify-center text-[#ccc] text-center">
           <Image
             src="/icons/catalog.png"

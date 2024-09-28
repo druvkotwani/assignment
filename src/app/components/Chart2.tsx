@@ -486,7 +486,7 @@ const Chart2 = () => {
           </div>
         )}
         {selectedTab === "Settings" && (
-          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-start font-cic-std text-lg">
+          <div className="min-h-[338px] md:px-[60px] pt-[38px]  flex items-center justify-start font-cic-std text-lg">
             <Settings />
           </div>
         )}
