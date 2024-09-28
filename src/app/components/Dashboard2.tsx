@@ -183,7 +183,7 @@ export default function Component(): JSX.Element {
   );
 
   return (
-    <div className="w-full md:max-w-6xl font-cic-std bg-white rounded-lg shadow-lg overflow-hidden max-w-[380px] md:min-w-[1100px]">
+    <div className="w-full font-cic-std bg-white  overflow-hidden ">
       <Price />
       <div className="pb-6">
         <Tabs />
@@ -214,7 +214,7 @@ export default function Component(): JSX.Element {
               <select
                 onChange={handleCoinSelect}
                 value={selectedCoin || ""}
-                className="w-[150px] text-base font-cic-std px-3 py-2  font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                className="w-[150px] text-base font-cic-std px-3 py-2  font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm"
               >
                 <option value="" disabled className="text-lg">
                   Select a coin

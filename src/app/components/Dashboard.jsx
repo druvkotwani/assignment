@@ -4,15 +4,27 @@ import Chart from "./Chart";
 import Price from "./Price";
 import Tabs from "./Tabs";
 import { TabContext } from "../context/tabContext";
-
+import Link from "next/link";
+const baseUrl = "https://newsapi.org/v2/everything";
+const query = "bitcoin"
 
 const Dashboard = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const fullscreenContainerRef = useRef(null);
-
+  const [news, setNews] = useState([]);
   const { selectedTab } = useContext(TabContext);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+
+    // fetch(`${baseUrl}?q=${query}&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setNews(data.articles);
+    //   });
+
+    anaylsisNews();
+
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
@@ -54,13 +66,16 @@ const Dashboard = () => {
     }
   };
 
+  const anaylsisNews = async () => {
+    setLoading(true);
+    const res = await fetch(`${baseUrl}?q=${query}&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`)
 
-  // const anaylsisNews = async () => {
-  //   const res = await fetch("https://newsapi.org/v2/everything?q=bitcoin&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=e82530cd7c0b425c87586da8ddf4091a");
-
-  //   const data = await res.json();
-  //   console.log(data);
-  // }
+    const data = await res.json();
+    const news = data.articles
+    const filtered = news.filter((article) => article.description);
+    setNews(filtered);
+    setLoading(false);
+  }
 
   return (
     <div
@@ -92,7 +107,25 @@ const Dashboard = () => {
       {
         selectedTab === "Analysis" && (
           <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
-            Analysis
+            {
+              loading ? <p>Loading...</p> : (
+                <div className="flex flex-col gap-2">
+
+                  {news && news.slice(0, 4).map((article, index) => (
+                    <>
+                      <Link href={
+                        article?.url
+                      } key={index} className="px-6 py-3 bg-gray-100 rounded flex items-center justify-start ">
+                        <div>
+                          <h3 className="text-xl font-bold">{article?.title}</h3>
+                          <p className="mt-2">{article?.description}</p>
+                        </div>
+                      </Link>
+                    </>
+                  ))}
+                </div>
+              )
+            }
           </div>)
       }
       {

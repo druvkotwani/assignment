@@ -9,7 +9,13 @@ import Image from "next/image";
 
 
 const timeframes = ["1d", "3d", "1w", "1m", "6m", "1y", "max"];
-
+const randomCoins = [
+    { id: "ethereum", name: "Ethereum" },
+    { id: "cardano", name: "Cardano" },
+    { id: "solana", name: "Solana" },
+    { id: "polkadot", name: "Polkadot" },
+    { id: "dogecoin", name: "Dogecoin" },
+];
 const Chart = ({ toggleFullscreen, isFullscreen }) => {
 
     const fetchData = async (timeframe) => {
@@ -75,13 +81,21 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
 
     const [data, setData] = useState(null);
     const [timeframe, setTimeframe] = useState("1m");
-
+    const [isComparing, setIsComparing] = useState(false);
+    const [selectedCoin, setSelectedCoin] = useState(null);
+    const [comparisonData, setComparisonData] = useState(null);
 
     const chartContainerRef = useRef(null);
-
     useEffect(() => {
         fetchData(timeframe).then(setData);
     }, [timeframe]);
+
+    useEffect(() => {
+        if (isComparing && selectedCoin) {
+            fetchData(timeframe, true).then(setComparisonData);
+        }
+    }, [isComparing, selectedCoin, timeframe]);
+
 
     useEffect(() => {
         if (data && chartContainerRef.current) {
@@ -146,6 +160,14 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
                 visible: true,
                 borderVisible: false,
             });
+            if (isComparing && comparisonData) {
+                const comparisonSeries = chart.addLineSeries({
+                    color: "#EF4444",
+                    lineWidth: 2,
+                    priceScaleId: "right",
+                });
+                comparisonSeries.setData(comparisonData.chartData);
+            }
 
             chart.priceScale("volume").applyOptions({
                 scaleMargins: {
@@ -201,8 +223,19 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
                 container.remove();
             };
         }
-    }, [data]);
+    }, [data, isComparing, comparisonData]);
+    const toggleCompare = () => {
+        setIsComparing(!isComparing);
+        if (!isComparing) {
+            setSelectedCoin(null);
+            setComparisonData(null);
+        }
+    };
 
+    const handleCoinSelect = (event) => {
+        const coinId = event.target.value;
+        setSelectedCoin(coinId);
+    };
 
 
     if (!data) return <div className="min-h-[338px] flex items-center justify-center font-cic-std text-lg">Loading...</div>;
@@ -210,25 +243,41 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
     return (
         <>
             {/* Timeline Tabs */}
-            <div className="mt-10 mb-3 px-[60px] flex justify-between items-center md:flex-row flex-col gap-4 md:gap-0">
-                <div className="flex  gap-5 text-lg">
+            <div className="mt-10 mb-3 px-[40px] flex justify-between items-center md:flex-row flex-col gap-4 md:gap-0">
+                <div className="flex gap-5 text-lg">
                     <div onClick={toggleFullscreen} className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
                         <Image src="/icons/icon-1.svg" width={24} height={24} alt="fullscreen" />
                         {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
                     </div>
-                    <div className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
+                    <div onClick={toggleCompare} className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
                         <Image src="/icons/icon.svg" width={24} height={24} alt="Compare" />
-                        Compare
+                        {isComparing ? "Remove" : "Compare"}
                     </div>
+                    {isComparing && (
+                        <select
+                            onChange={handleCoinSelect}
+                            value={selectedCoin || ""}
+                            className="w-[150px] text-base font-cic-std px-3 py-1 font-normal text-[#6F7177] bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none"
+                        >
+                            <option value="" disabled className="text-base ">
+                                Select a coin
+                            </option>
+                            {randomCoins.map((coin) => (
+                                <option key={coin.id} value={coin.id} className="text-base font-medium">
+                                    {coin.name}
+                                </option>
+                            ))}
+                        </select>
+                    )}
                 </div>
                 <div className="flex space-x-2">
                     {timeframes.map((tf) => (
                         <div
                             key={tf}
                             onClick={() => setTimeframe(tf)}
-                            className={`cursor-pointer  text-lg py-[5px] px-[14px] rounded-[5px] ${timeframe === tf
+                            className={`cursor-pointer text-lg py-[5px] px-[14px] rounded-[5px] ${timeframe === tf
                                 ? "bg-[#4B40EE] text-white"
-                                : " text-[#6F7177] hover:bg-gray-100"
+                                : "text-[#6F7177] hover:bg-gray-100"
                                 }`}
                         >
                             {tf}
@@ -246,3 +295,6 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
 };
 
 export default Chart;
+
+
+
