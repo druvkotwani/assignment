@@ -7,7 +7,23 @@ const navigate = [
   "Framework : Next.js/Typescript",
   "Libraries: Trading View Charting Library, Lucide Icons",
   "Font: Source Code Pro, Circular Std",
-  "Deployment: Vercel",
+  "Deployment: Vercel | API: Mediastack.com",
+];
+
+const dashboard1 = [
+  "Used Trading View's charting library",
+  "Responsive design",
+  "Fullscreen Funtionality added",
+  "Comprarison of 2 coins",
+  "Settings + Statistics + Analysis Design added",
+];
+
+const dashboard2 = [
+  "Used Svg's path and rect property to create graph",
+  "Responsive design",
+  "Full screen by default",
+  "Comparison of 2 coins",
+  "Settings + Statistics + Analysis Design added",
 ];
 
 export default function Home() {
@@ -46,27 +62,15 @@ export default function Home() {
         <div className="flex items-center justify-center md:flex-row flex-col gap-8 ">
           <div className="px-4 py-2 md:p-4 md:px-8 rounded border border-[#312f2f] flex flex-col items-center justify-center gap-8">
             <ul className="flex flex-col gap-4 mt-4 text-[#ccc]">
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Used Trading View&apos;s charting library
-              </li>
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Used Tailwind CSS for styling
-              </li>
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Fullscreen Funtionality added
-              </li>
+              {dashboard1.map((item, index) => (
+                <li key={index}>
+                  {" "}
+                  <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                    ✦
+                  </span>{" "}
+                  {item}
+                </li>
+              ))}
             </ul>
 
             <Link
@@ -79,27 +83,15 @@ export default function Home() {
           </div>
           <div className="px-4 py-2 md:p-4 md:px-8 rounded border border-[#312f2f] flex items-center justify-center flex-col gap-8">
             <ul className="flex flex-col gap-4 mt-4 text-[#ccc]">
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Used Trading View&apos;s charting library
-              </li>
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Used Tailwind CSS for styling
-              </li>
-              <li>
-                {" "}
-                <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
-                  ✦
-                </span>{" "}
-                Used Circular Std font
-              </li>
+              {dashboard2.map((item, index) => (
+                <li key={index}>
+                  {" "}
+                  <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
+                    ✦
+                  </span>{" "}
+                  {item}
+                </li>
+              ))}
             </ul>
 
             <Link
