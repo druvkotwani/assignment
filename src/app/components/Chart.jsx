@@ -205,18 +205,18 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
 
 
 
-    if (!data) return <div>Loading...</div>;
+    if (!data) return <div className="min-h-[338px] flex items-center justify-center font-cic-std text-lg">Loading...</div>;
 
     return (
         <>
             {/* Timeline Tabs */}
-            <div className="mt-[60px] mb-3 px-[60px] flex justify-between items-center">
-                <div className="flex  gap-[30px] text-lg">
-                    <div onClick={toggleFullscreen} className="flex items-center justify-center gap-[10px] cursor-pointer">
+            <div className="mt-10 mb-3 px-[60px] flex justify-between items-center md:flex-row flex-col gap-4 md:gap-0">
+                <div className="flex  gap-5 text-lg">
+                    <div onClick={toggleFullscreen} className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
                         <Image src="/icons/icon-1.svg" width={24} height={24} alt="fullscreen" />
                         {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
                     </div>
-                    <div className="flex items-center justify-center gap-[10px] cursor-pointer">
+                    <div className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
                         <Image src="/icons/icon.svg" width={24} height={24} alt="Compare" />
                         Compare
                     </div>
@@ -228,7 +228,7 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
                             onClick={() => setTimeframe(tf)}
                             className={`cursor-pointer  text-lg py-[5px] px-[14px] rounded-[5px] ${timeframe === tf
                                 ? "bg-[#4B40EE] text-white"
-                                : " text-[#6F7177] "
+                                : " text-[#6F7177] hover:bg-gray-100"
                                 }`}
                         >
                             {tf}
@@ -238,7 +238,7 @@ const Chart = ({ toggleFullscreen, isFullscreen }) => {
             </div>
 
             {/* Chart */}
-            <div>
+            <div className="mt-auto md:max-w-full  max-w-[380px]">
                 <div ref={chartContainerRef} className="h-[300px] w-full relative" />
             </div>
         </>
