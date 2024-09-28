@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-background {
+  background-color: #171212;
+  background-image: linear-gradient(rgba(79, 70, 229, 0.1) 1px, transparent 0),
+    linear-gradient(90deg, rgba(79, 70, 229, 0.1) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.font-sourceCodePro {
+  font-family: var(--font-source-code-pro);
+}
