@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import { TabProvider } from "./context/tabContext";
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${sourceCodePro.variable} ${circulatStdBook.variable} antialiased`}
       >
-        {children}
+        <TabProvider>{children}</TabProvider>
       </body>
     </html>
   );
