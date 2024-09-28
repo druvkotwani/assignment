@@ -45,7 +45,7 @@ export default function Home() {
         <h2 className="text-base md:text-xl text-[#ccc] text-center">
           Hii Sir/Mam!<span className="wave-hand text-2xl">👋 </span>
           <br />
-          Let&apos;s navigate and go through the assignment
+          Let&apos;s navigate through the assignment
           <ul className="flex flex-col text-base gap-4 mt-4 text-[#ccc]">
             {navigate.map((item, index) => (
               <li key={index} className="text-start">
