@@ -9,7 +9,11 @@ export default function Home() {
           ❤️
         </span>
         &nbsp;by&nbsp;
-        <Link href="https://www.dhruvkotwani.xyz" className=" text-[#1C7ED6]">
+        <Link
+          target="_blank"
+          href="https://www.dhruvkotwani.xyz"
+          className=" text-[#1C7ED6]"
+        >
           Dhruv
         </Link>
       </footer>

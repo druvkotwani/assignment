@@ -12,3 +12,7 @@
 .font-sourceCodePro {
   font-family: var(--font-source-code-pro);
 }
+
+.font-cic-std {
+  font-family: var(--font-cir-std-book);
+}

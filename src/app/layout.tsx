@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { Source_Code_Pro } from "next/font/google";
 import "./globals.css";
+import localFont from "next/font/local";
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
   variable: "--font-source-code-pro",
   weight: ["400", "700"],
+});
+
+const circulatStdBook = localFont({
+  src: "./fonts/CircularStd-Book.woff",
+  variable: "--font-cir-std-book",
+  weight: "100 400 800",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sourceCodePro.variable} antialiased`}>
+      <body
+        className={`${sourceCodePro.variable} ${circulatStdBook.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
