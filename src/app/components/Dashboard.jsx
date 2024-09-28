@@ -5,6 +5,8 @@ import Price from "./Price";
 import Tabs from "./Tabs";
 import { TabContext } from "../context/tabContext";
 import Link from "next/link";
+import Statistics from "./Statistics";
+import Settings from "./Settings";
 const baseUrl = "http://api.mediastack.com/v1/news";
 
 const Dashboard = () => {
@@ -123,14 +125,14 @@ const Dashboard = () => {
       }
       {
         selectedTab === "Statistics" && (
-          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
-            Statistics
+          <div className="min-h-[338px] px-8 md:px-[60px]  flex items-center justify-center font-cic-std text-lg">
+            <Statistics />
           </div>)
       }
       {
         selectedTab === "Settings" && (
           <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
-            Settings
+            <Settings />
           </div>)
       }
     </div>

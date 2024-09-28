@@ -14,6 +14,8 @@ import Tabs from "./Tabs";
 import Image from "next/image";
 import { TabContext } from "../context/tabContext";
 import Link from "next/link";
+import Statistics from "./Statistics";
+import Settings from "./Settings";
 
 type TimeframeKey = "1d" | "3d" | "1w" | "1m" | "6m" | "1y" | "max";
 
@@ -479,13 +481,13 @@ const Chart2 = () => {
           </div>
         )}
         {selectedTab === "Statistics" && (
-          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
-            Statistics
+          <div className="min-h-[338px] px-8 md:px-[60px]   flex items-center justify-center font-cic-std text-lg">
+            <Statistics />
           </div>
         )}
         {selectedTab === "Settings" && (
-          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
-            Settings
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-start font-cic-std text-lg">
+            <Settings />
           </div>
         )}
       </div>

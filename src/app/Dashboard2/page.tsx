@@ -5,7 +5,7 @@ import Component from "../components/Dashboard2";
 
 const Page = () => {
   return (
-    <div className=" flex items-start justify-start w-screen h-screen flex-col  ">
+    <div className=" flex items-start justify-start  min-h-screen  flex-col  ">
       <Component />
 
       <div className="my-8 w-full md:hidden flex gap-8 items-center justify-center font-sourceCodePro">

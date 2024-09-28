@@ -8,7 +8,7 @@ import Chart2 from "./Chart2";
 
 export default function Component(): JSX.Element {
   return (
-    <div className="w-full font-cic-std bg-white  overflow-hidden ">
+    <div className="w-full font-cic-std bg-white overflow-hidden ">
       <div className="flex items-center justify-between w-full">
         <Price />
         <div className="my-8 hidden self-start mt-24 mr-4   md:flex gap-8 items-center justify-center font-sourceCodePro">
