@@ -34,9 +34,9 @@ export default function Settings() {
         return (
           <div className="w-[370px] md:md:w-[600px]">
             <p style={{ color: "#666", marginBottom: "16px" }}>
-              This is your team&apos;s URL namespace on Vercel. Within it, your
-              team can inspect their projects, check out any recent activity, or
-              configure settings to their liking.
+              This is your team&apos;s URL namespace on dhruvkotwani. Within it,
+              your team can inspect their projects, check out any recent
+              activity, or configure settings to their liking.
             </p>
             <div
               style={{
@@ -46,7 +46,7 @@ export default function Settings() {
               }}
             >
               <span style={{ color: "#666", marginRight: "8px" }}>
-                vercel.com/
+                dhruvkotwani.xyz/
               </span>
               <input
                 type="text"
@@ -71,10 +71,10 @@ export default function Settings() {
                 marginBottom: "16px",
               }}
             >
-              Team Avatar
+              Your Avatar
             </h2>
             <p style={{ color: "#666", marginBottom: "16px" }}>
-              This is your team&apos;s avatar. Click on the avatar to upload a
+              This is your your&apos;s avatar. Click on the avatar to upload a
               custom one from your files.
             </p>
             <div
