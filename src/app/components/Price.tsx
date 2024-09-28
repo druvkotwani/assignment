@@ -7,7 +7,7 @@ const Price = () => {
         <span>63,179.71</span>
         <span className="text-[#BDBEBF]  text-2xl pt-[22.2px] pl-2">USD</span>
       </div>
-      <span className="text-lg text-[#87a689] pt-2">+ 2,161.42 (3.54%)</span>
+      <span className="text-lg text-[#67BF6B] pt-2">+ 2,161.42 (3.54%)</span>
     </div>
   );
 };
