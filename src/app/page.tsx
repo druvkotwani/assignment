@@ -23,10 +23,13 @@ export default function Home() {
           </li>
         </ul>
 
-        <button className="px-6 py-3 bg-gradient-to-r from-teal-400  to-sky-600 rounded">
-          <Link href={"/"}>Dashboard 1</Link>
+        <Link
+          href={"/Dashboard1"}
+          className="px-6 py-3 bg-gradient-to-r from-teal-400  to-sky-600 rounded"
+        >
+          Dashboard 1
           <ArrowRight className="w-5 h-5 inline-block ml-2" />
-        </button>
+        </Link>
       </div>
       <div className="p-4 px-8 rounded border border-[#312f2f] flex items-center justify-center flex-col gap-8">
         <ul className="flex flex-col gap-4 mt-4 text-[#ccc]">
@@ -46,10 +49,13 @@ export default function Home() {
           </li>
         </ul>
 
-        <button className="px-6 py-3 bg-gradient-to-r from-green-300 to-pink-400 rounded">
-          <Link href={"/"}>Dashboard 2</Link>
+        <Link
+          href={"/Dashboard2"}
+          className="px-6 py-3 bg-gradient-to-r from-green-300  to-pink-400 rounded"
+        >
+          Dashboard 2
           <ArrowRight className="w-5 h-5 inline-block ml-2" />
-        </button>
+        </Link>
       </div>
       <footer className="text-[#ccc] absolute bottom-4 text-center flex w-full items-center justify-center text-lg">
         Assignment made with&nbsp;
