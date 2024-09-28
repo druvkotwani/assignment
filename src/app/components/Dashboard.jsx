@@ -7,7 +7,7 @@ import { TabContext } from "../context/tabContext";
 import Link from "next/link";
 import Statistics from "./Statistics";
 import Settings from "./Settings";
-const baseUrl = "http://api.mediastack.com/v1/news";
+const baseUrl = "https://api.mediastack.com/v1/news";
 
 const Dashboard = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);

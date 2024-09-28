@@ -27,7 +27,7 @@ const generateChartData = (days: number): number[] => {
   }
   return data;
 };
-const baseUrl = "http://api.mediastack.com/v1/news";
+const baseUrl = "https://api.mediastack.com/v1/news";
 
 const generateVolumeData = (days: number): number[] => {
   return Array.from({ length: days }, () => Math.random() * 100);
