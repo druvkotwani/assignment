@@ -53,6 +53,15 @@ const Dashboard = () => {
       }
     }
   };
+
+
+  // const anaylsisNews = async () => {
+  //   const res = await fetch("https://newsapi.org/v2/everything?q=bitcoin&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=e82530cd7c0b425c87586da8ddf4091a");
+
+  //   const data = await res.json();
+  //   console.log(data);
+  // }
+
   return (
     <div
       ref={fullscreenContainerRef}
@@ -70,7 +79,7 @@ const Dashboard = () => {
 
       {
         selectedTab === "Summary" && (
-          <div className="min-h-[338px] px-[60px] pt-[38px]  flex items-start justify-center font-cic-std text-lg">
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-start justify-center font-cic-std text-lg">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore nulla ut rem corrupti porro in possimus, aperiam quae reiciendis quam odio ea beatae velit dolorem eveniet deleniti officia mollitia natus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolor ex accusamus pariatur voluptates quam ut accusantium delectus, nobis quibusdam odit magni iusto eum assumenda. Dolorem quo perspiciatis nihil sit!
 
             <br />
@@ -82,19 +91,19 @@ const Dashboard = () => {
 
       {
         selectedTab === "Analysis" && (
-          <div className="min-h-[338px] px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
             Analysis
           </div>)
       }
       {
         selectedTab === "Statistics" && (
-          <div className="min-h-[338px] px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
             Statistics
           </div>)
       }
       {
         selectedTab === "Settings" && (
-          <div className="min-h-[338px] px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
             Settings
           </div>)
       }

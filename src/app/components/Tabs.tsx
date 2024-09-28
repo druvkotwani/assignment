@@ -34,7 +34,7 @@ const Tabs = () => {
       <div className="mt-[40px] overflow-auto md:hidden">
         <div
           ref={tabsContainerRef}
-          className="w-full pb-5 pl-[60px] relative border-b-[#EFF1F3] border-b flex gap-[30px] transition-transform duration-300 ease-in-out"
+          className="w-full pb-5 pl-8 md:pl-[60px] relative border-b-[#EFF1F3] border-b flex gap-[30px] transition-transform duration-300 ease-in-out"
           style={{ transform: `translateX(-${scrollPosition}px)` }}
         >
           {tabs.map((tab, index) => (
@@ -60,7 +60,7 @@ const Tabs = () => {
       </div>
 
       <div className="mt-[40px] hidden md:block">
-        <div className="w-full pb-5 flex-wrap pl-[60px] relative border-b-[#EFF1F3] border-b flex gap-[30px]">
+        <div className="w-full pb-5 flex-wrap pl-8 md:pl-[60px] relative border-b-[#EFF1F3] border-b flex gap-[30px]">
           {tabs.map((tab, index) => (
             <div
               className="flex flex-col items-center justify-center"
