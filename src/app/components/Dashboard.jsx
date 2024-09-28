@@ -5,8 +5,7 @@ import Price from "./Price";
 import Tabs from "./Tabs";
 import { TabContext } from "../context/tabContext";
 import Link from "next/link";
-const baseUrl = "https://newsapi.org/v2/everything";
-const query = "bitcoin"
+const baseUrl = "http://api.mediastack.com/v1/news";
 
 const Dashboard = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -16,13 +15,6 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-
-    // fetch(`${baseUrl}?q=${query}&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=${process.env.NEWS_API_KEY}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setNews(data.articles);
-    //   });
-
     anaylsisNews();
 
     const handleFullscreenChange = () => {
@@ -68,12 +60,11 @@ const Dashboard = () => {
 
   const anaylsisNews = async () => {
     setLoading(true);
-    const res = await fetch(`${baseUrl}?q=${query}&from=2024-09-27&to=2024-09-27&sortBy=popularity&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`)
+    const res = await fetch(`${baseUrl}?access_key=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`)
 
     const data = await res.json();
-    const news = data.articles
-    const filtered = news.filter((article) => article.description);
-    setNews(filtered);
+    const news = data.data
+    setNews(news);
     setLoading(false);
   }
 
@@ -106,9 +97,11 @@ const Dashboard = () => {
 
       {
         selectedTab === "Analysis" && (
-          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-center font-cic-std text-lg">
+
+          <div className="min-h-[338px] px-8 md:px-[60px] pt-[38px]  flex items-center justify-start font-cic-std text-lg">
+
             {
-              loading ? <p>Loading...</p> : (
+              loading ? <p className="flex items-center justify-center w-full h-full">Loading...</p> : (
                 <div className="flex flex-col gap-2">
 
                   {news && news.slice(0, 4).map((article, index) => (
