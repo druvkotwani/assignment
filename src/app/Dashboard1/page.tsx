@@ -5,8 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Page = () => {
   return (
-    <div className="bg-background !bg-gray-200 flex items-center justify-center min-h-screen flex-col">
-      <div className="rounded-md shadow-xl my-4">
+    <div className="bg-background-black md:!bg-gray-200 bg-white flex items-center justify-center md:min-h-screen flex-col">
+      <div className="rounded-md md:shadow-xl md:my-4 ">
         <Dashboard />
       </div>
 

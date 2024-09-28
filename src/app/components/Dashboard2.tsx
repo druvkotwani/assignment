@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useCallback, useRef, useMemo } from "react";
-import { ZoomInIcon, ZoomOutIcon } from "lucide-react";
+import { ArrowLeft, ArrowRight, ZoomInIcon, ZoomOutIcon } from "lucide-react";
 import Price from "./Price";
 import Tabs from "./Tabs";
 import Image from "next/image";
+import Link from "next/link";
 
 type TimeframeKey = "1d" | "3d" | "1w" | "1m" | "6m" | "1y" | "max";
 
@@ -184,11 +185,29 @@ export default function Component(): JSX.Element {
 
   return (
     <div className="w-full font-cic-std bg-white  overflow-hidden ">
-      <Price />
+      <div className="flex items-center justify-between w-full">
+        <Price />
+        <div className="my-8 hidden self-start mt-24 mr-4   md:flex gap-8 items-center justify-center font-sourceCodePro">
+          <Link
+            href="/"
+            className="px-6 py-3 bg-gradient-to-r from-slate-300  to-yellow-300 rounded flex items-center justify-center"
+          >
+            <ArrowLeft className="w-5 h-5 inline-block mr-2" />
+            Home
+          </Link>
+          <Link
+            href="/Dashboard1"
+            className="px-6 py-3 bg-gradient-to-r from-orange-300  to-pink-300 rounded flex items-center justify-center"
+          >
+            Dashboard 1
+            <ArrowRight className="w-5 h-5 inline-block ml-2" />
+          </Link>
+        </div>
+      </div>
       <div className="pb-6">
         <Tabs />
-        <div className="flex justify-between md:flex-row flex-col gap-8 md:gap-0 items-start px-[60px] mt-10 mb-2">
-          <div className="flex gap-5 text-lg">
+        <div className="flex justify-between md:flex-row flex-col gap-8 md:gap-0 items-start px-2 md:px-[60px] mt-10 mb-2">
+          <div className="flex gap-2 md:gap-5 text-lg">
             <div className="flex items-center justify-center gap-[10px] cursor-pointer hover:bg-gray-100 py-2 px-4 rounded">
               <Image
                 src="/icons/icon-1.svg"
@@ -208,7 +227,7 @@ export default function Component(): JSX.Element {
                 height={24}
                 alt="Compare"
               />
-              {isComparing ? "Remove Comparision" : "Compare"}
+              {isComparing ? "Remove" : "Compare"}
             </div>
             {isComparing && (
               <select
@@ -262,7 +281,7 @@ export default function Component(): JSX.Element {
             </div>
           </div>
         </div>
-        <div className="w-full h-80 bg-white rounded-md overflow-hidden relative px-[60px] pt-10">
+        <div className="w-full h-80 bg-white rounded-md overflow-hidden relative px-2 md:px-[60px] pt-10">
           <svg
             ref={svgRef}
             width="100%"

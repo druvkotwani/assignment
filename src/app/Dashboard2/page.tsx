@@ -5,12 +5,10 @@ import Component from "../components/Dashboard2";
 
 const Page = () => {
   return (
-    <div className="bg-background !bg-gray-200 flex items-center justify-center min-h-screen flex-col ">
-      <div className="rounded-md shadow-xl my-4">
-        <Component />
-      </div>
+    <div className=" flex items-start justify-start w-screen h-screen flex-col  ">
+      <Component />
 
-      <div className="my-8 flex gap-8 items-center justify-center font-sourceCodePro">
+      <div className="my-8 w-full md:hidden flex gap-8 items-center justify-center font-sourceCodePro">
         <Link
           href="/"
           className="px-6 py-3 bg-gradient-to-r from-slate-300  to-yellow-300 rounded flex items-center justify-center"
