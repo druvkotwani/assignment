@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const navigate = [
   "Framework : Next.js/Typescript",
-  "Libraries: Trading View Charting Library, Lucide Icons",
+  "Libraries: Trading View Charting Library, Lucide Icons, MUI Charts",
   "Font: Source Code Pro, Circular Std",
   "Deployment: Vercel | API: Mediastack.com",
 ];
