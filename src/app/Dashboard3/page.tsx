@@ -19,7 +19,7 @@ const Page = () => {
           Home
         </Link>
         <Link
-          href="/Dashboard1"
+          href="/Dashboard2"
           className="px-6 py-3 bg-gradient-to-r from-orange-300  to-pink-300 rounded flex items-center justify-center"
         >
           Dashboard 2

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const navigate = [
   "Framework : Next.js/Typescript",
-  "Libraries: Trading View Charting Library, Lucide Icons, MUI Charts",
+  "Libraries: Trading View Charting Library, Lucide Icons, Recharts",
   "Font: Source Code Pro, Circular Std",
   "Deployment: Vercel | API: Mediastack.com",
 ];
@@ -103,6 +103,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        <Link
+          href={"/Dashboard3"}
+          className="px-6 py-3 bg-gradient-to-r from-orange-400  to-purple-600 rounded"
+        >
+          Dashboard 3
+          <ArrowRight className="w-5 h-5 inline-block ml-2" />
+        </Link>
         <footer className="text-[#ccc]  min-h-8 text-center flex w-full items-center justify-center text-lg">
           Assignment made with&nbsp;
           <span className="hover:scale-125 duration-300 transition-all ease-in-out transform">

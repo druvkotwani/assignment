@@ -17,10 +17,10 @@ const Page = () => {
           Home
         </Link>
         <Link
-          href="/Dashboard1"
+          href="/Dashboard3"
           className="px-6 py-3 bg-gradient-to-r from-orange-300  to-pink-300 rounded flex items-center justify-center"
         >
-          Dashboard 1
+          Dashboard 3
           <ArrowRight className="w-5 h-5 inline-block ml-2" />
         </Link>
       </div>
